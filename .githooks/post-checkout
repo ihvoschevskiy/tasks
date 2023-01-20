@@ -1,0 +1,18 @@
+#!/bin/sh
+
+script_name=$npm_lifecycle_event
+branch_from="$(git name-rev --name-only $1)"
+
+if [[ $branch_from = "master" ]]; then
+
+  if [[ -n "$script_name" ]]; then
+   rm -rf ./.git
+   git init
+   npm run init
+   git add .
+   git commit -m "Инициализация проекта"
+  fi
+
+fi
+
+
