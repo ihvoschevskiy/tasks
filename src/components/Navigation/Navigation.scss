@@ -1,0 +1,25 @@
+@import '~common/styles/variables';
+
+.navigation {
+  grid-column: 5 / span 3;
+  padding-right: 70px;
+  text-align: right;
+
+  &__link {
+    display: inline-block;
+    font-size: 48px;
+    font-weight: 100;
+    line-height: 1;
+    color: $color-accent-dim;
+    text-transform: uppercase;
+
+    &--active {
+      margin-bottom: 50px;
+      border-bottom: solid 1px;
+    }
+
+    &--active:not(:first-child) {
+      margin-top: 50px;
+    }
+  }
+}

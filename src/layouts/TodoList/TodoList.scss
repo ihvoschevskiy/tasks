@@ -1,0 +1,14 @@
+@import '~common/styles/variables';
+
+.todo-list {
+  display: flex;
+  flex-direction: column;
+  grid-column: 8/-3;
+  height: 325px;
+  overflow: auto;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}

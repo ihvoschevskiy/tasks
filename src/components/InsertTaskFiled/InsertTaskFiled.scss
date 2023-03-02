@@ -1,0 +1,13 @@
+@import '~common/styles/variables';
+
+.insert-task {
+  grid-column: 8/-3;
+  width: 100%;
+  margin-bottom: 16px;
+  border-bottom: solid 1px $color-accent-dim;
+
+  &__input::placeholder {
+    padding: 4px 8px;
+    color: $color-primary-dim;
+  }
+}

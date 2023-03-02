@@ -1,11 +1,6 @@
 @import './variables';
 @import './fonts';
 
-* {
-  all: unset;
-  display: revert;
-}
-
 html {
   box-sizing: border-box;
 }
@@ -14,6 +9,11 @@ html {
 *::before,
 *::after {
   box-sizing: inherit;
+}
+
+*:not(svg *) {
+  all: unset;
+  display: revert;
 }
 
 li {
@@ -25,12 +25,28 @@ a {
 }
 
 body {
-  max-width: 1920px;
+  width: 100vw;
+  height: 100vh;
   margin: 0 auto;
-  font-family: Roboto, sans-serif;
-  font-size: 14px;
+  font-family: JosefinSans, sans-serif;
+  font-size: 18px;
   font-weight: 400;
-  line-height: 18px;
-  color: -primary;
-  background-color: -white;
+  line-height: 1.25;
+  color: $color-primary;
+  background-image: url('~images/bg.png');
+  background-repeat: no-repeat;
+  background-position: 30%;
+  background-size: contain;
+}
+
+.container {
+  max-width: $container-width;
+  padding: 0 5px;
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(14, $grid-culumn-width);
+  gap: $grid-gap;
 }

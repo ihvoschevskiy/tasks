@@ -1,6 +1,6 @@
-import './Home.scss'
+import './Login.scss'
 import React, { FC } from 'react'
 
-export const Home: FC = () => {
+export const Login: FC = () => {
   return <React.Fragment></React.Fragment>
 }

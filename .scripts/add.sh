@@ -12,8 +12,8 @@ import React, { FC } from 'react'
 
 export const $2: FC = () => {
   return (
-    <React.Fragment>
-    </React.Fragment>
+    <>
+    </>
   )
 }
 EOF
@@ -21,7 +21,7 @@ EOF
 
   if ! [[ -f "./src/$1/$2/$2.scss" ]]; then
 cat <<EOF > "./src/$1/$2/$2.scss"
-@import '~common/styles/_variables.scss';
+@import '~common/styles/variables';
 EOF
   fi
 

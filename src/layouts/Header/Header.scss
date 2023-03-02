@@ -1,0 +1,27 @@
+@import '~common/styles/variables';
+
+.header {
+  min-height: 64px;
+  padding-top: 40px;
+
+  &-info {
+    display: flex;
+    grid-column: 11/-3;
+    align-items: center;
+    justify-content: end;
+    min-height: inherit;
+  }
+
+  &__username {
+    padding-right: 16px;
+    font-family: Inter, sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 24px;
+    color: $color-accent;
+  }
+
+  &__logout-icon {
+    display: block;
+  }
+}

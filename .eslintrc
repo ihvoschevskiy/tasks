@@ -10,7 +10,7 @@
   },
   "plugins": ["simple-import-sort"],
   "rules": {
-    "no-console": "error",
+    "no-console": "warn",
     "simple-import-sort/imports": [
       "error",
       {
