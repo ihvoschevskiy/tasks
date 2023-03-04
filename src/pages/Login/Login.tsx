@@ -1,5 +1,6 @@
 import './Login.scss'
 import React, { FC } from 'react'
+import { Link } from 'react-router-dom'
 import emailIco from '../../assets/images/email-ico.svg'
 import githubIco from '../../assets/images/github-ico.svg'
 import googleIco from '../../assets/images/google-ico.svg'
@@ -28,9 +29,9 @@ export const Login: FC = () => {
         </div>
         <p className="login-form__signup">
           Don’t have account?{' '}
-          <a href="#" className="login-form__signup-link">
+          <Link to="/register" className="login-form__signup-link">
             Sign up
-          </a>
+          </Link>
         </p>
       </form>
     </>
