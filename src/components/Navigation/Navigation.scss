@@ -17,9 +17,9 @@
       margin-bottom: 50px;
       border-bottom: solid 1px;
     }
+  }
 
-    &--active:not(:first-child) {
-      margin-top: 50px;
-    }
+  &__item:not(:first-child) &__link--active {
+    margin-top: 50px;
   }
 }
