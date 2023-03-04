@@ -1,0 +1,27 @@
+@import '~common/styles/variables';
+
+.data-field {
+  &__label {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 44px;
+    padding: 0 16px;
+    background-color: $color-accent-dim;
+    border-radius: 4px;
+  }
+
+  &__icon {
+    width: 18px;
+  }
+
+  &__input {
+    padding-top: 4px;
+    padding-left: 16px;
+  }
+
+  &__input::placeholder {
+    color: $color-primary-dim;
+  }
+}

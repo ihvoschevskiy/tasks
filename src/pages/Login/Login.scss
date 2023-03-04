@@ -1,1 +1,84 @@
 @import '~common/styles/variables';
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-items: center;
+  justify-content: center;
+  max-width: 320px;
+  height: 100%;
+  margin: 0 auto;
+
+  &__title {
+    font-size: 26px;
+    font-weight: 700;
+  }
+
+  &__caption {
+    margin-bottom: 12px;
+    font-size: 14px;
+    color: $color-primary-dim;
+  }
+
+  &__btn {
+    width: 100%;
+    height: 44px;
+    margin-bottom: 13px;
+    font-size: 13px;
+    font-weight: 700;
+    color: $color-white;
+    text-align: center;
+    background-color: $color-accent;
+    border-radius: 4px;
+  }
+
+  &__signup {
+    font-size: 12px;
+  }
+
+  &__signup-link {
+    font-weight: 700;
+    text-decoration: underline;
+  }
+}
+
+.oath-wrapper {
+  width: 100%;
+  margin-bottom: 14px;
+}
+
+.oath-icons-wrapper {
+  text-align: center;
+}
+
+.oath {
+  &__caption {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    font-size: 12px;
+    color: $color-primary-dim;
+    white-space: nowrap;
+  }
+
+  &__caption::before,
+  &__caption::after {
+    width: 100%;
+    content: '';
+    border-bottom: 1px solid $color-primary-dim;
+  }
+
+  &__caption::before {
+    margin-right: 26px;
+  }
+
+  &__caption::after {
+    margin-left: 26px;
+  }
+
+  &__link:first-child {
+    margin-right: 12px;
+  }
+}
