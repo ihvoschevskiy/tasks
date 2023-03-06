@@ -4,6 +4,7 @@
   grid-column: 5 / span 3;
   padding-right: 70px;
   text-align: right;
+  user-select: none;
 
   &__link {
     display: inline-block;

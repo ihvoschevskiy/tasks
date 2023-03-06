@@ -1,6 +1,7 @@
 @import '~common/styles/variables';
 
 .register-form {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 14px;
@@ -29,8 +30,18 @@
     font-weight: 700;
     color: $color-white;
     text-align: center;
+    cursor: pointer;
     background-color: $color-accent;
     border-radius: 4px;
+  }
+
+  &__signin {
+    font-size: 12px;
+  }
+
+  &__signin-link {
+    font-weight: 700;
+    text-decoration: underline;
   }
 }
 

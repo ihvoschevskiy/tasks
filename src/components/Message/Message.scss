@@ -1,0 +1,20 @@
+@import '~common/styles/variables';
+
+.message-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 20px;
+  border: solid 1px $color-primary-dim;
+  border-radius: 4px;
+}
+
+.message {
+  &__title {
+    margin-bottom: 8px;
+    font-size: 27px;
+    font-weight: 700;
+  }
+}

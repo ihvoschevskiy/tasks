@@ -1,0 +1,13 @@
+@import '~common/styles/variables';
+
+.errors-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 334px;
+  width: 320px;
+  padding: 4px;
+  font-size: 12px;
+  color: $color-primary;
+  border-bottom: solid 1px $color-accent-dim;
+}

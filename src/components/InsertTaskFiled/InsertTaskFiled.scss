@@ -7,8 +7,17 @@
   margin-bottom: 16px;
   border-bottom: solid 1px $color-accent-dim;
 
+  &__input {
+    width: 100%;
+  }
+
   &__input::placeholder {
     padding: 4px 8px;
     color: $color-primary-dim;
+  }
+
+  &__input::selection {
+    color: $color-white;
+    background-color: $color-accent;
   }
 }

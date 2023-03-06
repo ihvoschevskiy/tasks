@@ -24,6 +24,15 @@ a {
   cursor: pointer;
 }
 
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: background-color 5000s;
+
+  // -webkit-text-fill-color: $color-primary !important;
+}
+
 body {
   width: 100vw;
   height: 100vh;

@@ -12,8 +12,20 @@
   &__card {
     display: flex;
     align-items: center;
-    width: 100%;
+    width: 80%;
     height: 64px;
+    word-wrap: break-word;
+  }
+
+  &__edit-input {
+    width: 100%;
+    margin-top: 2px;
+    margin-left: 34px;
+  }
+
+  &__edit-input::selection {
+    color: $color-white;
+    background-color: $color-accent;
   }
 
   &__task {
@@ -23,22 +35,39 @@
     margin-left: 8px;
   }
 
-  &__edit-ico {
+  &__task::selection {
+    color: $color-white;
+    background-color: $color-accent;
+  }
+
+  &__goal-ico {
     margin-left: 16px;
   }
 
+  &__delete-ico {
+    margin-right: 2px;
+  }
+
+  &__goal-ico,
   &__edit-ico,
   &__delete-ico {
     visibility: hidden;
     opacity: 0;
   }
+
+  &__goal-ico:hover,
+  &__edit-ico:hover,
+  &__delete-ico:hover {
+    transform: scale(1.15);
+  }
 }
 
+.todo-item:hover .todo-item__goal-ico,
 .todo-item:hover .todo-item__edit-ico,
 .todo-item:hover .todo-item__delete-ico {
   visibility: visible;
   opacity: 1;
-  transition: opacity 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
 
 input[type='checkbox'] {

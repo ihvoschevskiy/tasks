@@ -1,6 +1,6 @@
 import './common/styles/_base.scss'
 import React, { FC } from 'react'
-import { Route, Routes } from 'react-router-dom'
+import { Navigate, Route, Routes } from 'react-router-dom'
 import { PrivateRoute } from './components/PrivateRoute/PrivateRoute'
 import { Login } from './pages/Login/Login'
 import { Register } from './pages/Register/Register'
@@ -17,6 +17,7 @@ export const App: FC = () => {
           <Route path="/focus" element={<Todo />} />
           <Route path="/done" element={<Todo />} />
         </Route>
+        <Route path="/*" element={<Navigate to="/all" />} />
       </Routes>
     </>
   )

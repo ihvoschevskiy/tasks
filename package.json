@@ -6,13 +6,11 @@
   "scripts": {
     "start": "cross-env-shell NODE_ENV=development node ./webpack/development.js",
     "build": "cross-env-shell NODE_ENV=production node ./webpack/production.js",
-    "analyze": "webpack-bundle-analyzer ./build/stats.json",
-    "serve": "serve ./build",
-    "eslint": "eslint ./ --ext .ts,.tsx,.js,.jsx",
-    "stylelint": "stylelint \"src/{**/*,*}.scss\"",
+    "lint": "eslint ./ --ext .ts,.tsx,.js,jsx && stylelint \"./src/**/*.?(s)css\"",
+    "lint:fix": "eslint ./ --ext .ts,.tsx,.js,jsx --fix && stylelint \"./src/**/*.?(s)css\" --fix",
     "prettier": "prettier --write ./",
     "prettier:check": "prettier --check ./",
-    "fix": "npm run eslint -- --fix & npm run stylelint -- --fix && npm run prettier",
+    "serve": "serve -s ./build",
     "test": "jest",
     "init": "bash ./.scripts/init.sh",
     "add": "bash ./.scripts/add.sh"
@@ -73,11 +71,11 @@
     "firebase": "^9.17.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.8.0"
+    "react-router-dom": "^6.8.0",
+    "react-spinners": "^0.13.8"
   },
   "pre-commit": [
-    "stylelint",
-    "eslint",
+    "lint",
     "prettier:check"
   ]
 }

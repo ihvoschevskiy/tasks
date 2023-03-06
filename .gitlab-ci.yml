@@ -1,0 +1,44 @@
+stages:
+  - testing
+  - build
+  - deploy
+
+code_quality_checking:
+  image: node:18.3.0
+  stage: testing
+  before_script:
+    - npm ci
+  script:
+    - npm run lint
+    - npm run prettier:check
+  only:
+    - merge_requests
+
+build:
+  image: node:18.3.0
+  stage: build
+  before_script:
+    - npm ci
+  script:
+    - npm run build
+  artifacts:
+    paths:
+      - build
+  only:
+    - merge_requests
+    - master
+
+deploy:
+  image: alpine:latest
+  stage: deploy
+  before_script:
+    - apk update && apk add rsync openssh
+    - mkdir ~/.ssh && chmod 600 ~/.ssh
+    - echo "$SSH_PRIVATE_KEY" >> ~/.ssh/id_rsa && chmod 600 ~/.ssh/id_rsa
+    - echo "$SSH_KNOWN_HOSTS" >> ~/.ssh/known_hosts && chmod 600 ~/.ssh/known_hosts
+  script:
+    - rsync -a --delete build/ sshelesst@116.203.182.120:/home/sshelesst/kc_tasks
+  environment: production
+  resource_group: production
+  only:
+    - master

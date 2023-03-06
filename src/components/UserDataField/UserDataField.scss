@@ -1,5 +1,10 @@
 @import '~common/styles/variables';
 
+.data-field-wrapper {
+  position: relative;
+  width: 100%;
+}
+
 .data-field {
   &__label {
     box-sizing: border-box;
@@ -23,5 +28,9 @@
 
   &__input::placeholder {
     color: $color-primary-dim;
+  }
+
+  &__input::selection {
+    color: $color-white;
   }
 }

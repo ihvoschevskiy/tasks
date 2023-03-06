@@ -1,0 +1,12 @@
+@import '~common/styles/variables';
+
+.loading-wrapper {
+  height: 60%;
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
