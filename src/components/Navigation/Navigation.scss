@@ -14,8 +14,13 @@
     color: $color-accent-dim;
     text-transform: uppercase;
 
+    &:hover {
+      color: $color-accent;
+    }
+
     &--active {
       margin-bottom: 50px;
+      color: $color-accent;
       border-bottom: solid 1px;
     }
   }
