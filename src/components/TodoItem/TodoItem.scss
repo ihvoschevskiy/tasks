@@ -74,10 +74,10 @@ input[type='checkbox'] {
   position: relative;
   width: 26px;
   height: 24px;
+  appearance: none;
   cursor: pointer;
   background-image: url('~images/undone-ico.svg');
   background-repeat: no-repeat;
-  appearance: none;
 
   &:checked {
     opacity: 0.5;
