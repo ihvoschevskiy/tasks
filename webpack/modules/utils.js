@@ -1,4 +1,5 @@
 const { HotModuleReplacementPlugin } = require('webpack')
+const Dotenv = require('dotenv-webpack')
 const WebpackBar = require('webpackbar')
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 const ESLintPlugin = require('eslint-webpack-plugin')
@@ -38,10 +39,15 @@ const connectToBundleAnalyzer = () => ({
   ],
 })
 
+const useDotenv = () => ({
+  plugins: [new Dotenv()],
+})
+
 module.exports = {
   esLint,
   styleLint,
   connectToHMR,
   connectToProgressIndicator,
   connectToBundleAnalyzer,
+  useDotenv,
 }

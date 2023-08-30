@@ -1,0 +1,74 @@
+name: project deployment for testing
+
+env:
+  PERSONAL_ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+  DOT_FILES_FOR_TESTING: ${{ secrets.DOT_FILES_REPOSITORY }}
+
+on:
+  push:
+    branches: [testing]
+
+jobs:
+  code_quality_checking:
+    name: проверка качества кода
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
+      - run: npm ci
+      - run: npm run lint:prod
+      - run: npm run prettier:check
+  get_files_for_frontend:
+    name: получение frontend dot files
+    needs: code_quality_checking
+    environment: testing
+    runs-on: ubuntu-20.04
+    container: alpine:latest
+    steps:
+      - run: apk update && apk add curl
+      - run: |
+          curl -H "Authorization: token ${PERSONAL_ACCESS_TOKEN}" ${DOT_FILES_FOR_TESTING}/frontend.env >> .env
+      - uses: actions/upload-artifact@v3
+        with:
+          name: frontend_files
+          path: |
+            .env
+  build:
+    name: сборка проекта
+    needs: get_files_for_frontend
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
+      - uses: actions/download-artifact@v3
+        with:
+          name: frontend_files
+          path: ./
+      - run: npm ci
+      - run: npm run build
+      - uses: actions/upload-artifact@v3
+        with:
+          name: build
+          path: build
+  deploy:
+    name: доставка кода на сервер
+    needs: build
+    environment: testing
+    runs-on: ubuntu-20.04
+    container: alpine:latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/download-artifact@v3
+      - uses: appleboy/scp-action@v0.1.4
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.DEPLOYMENT_PRIVATE_KEY }}
+          source: './build/*'
+          target: ${{ secrets.TARGET_PATH }}
+          strip_components: 1
+          rm: true

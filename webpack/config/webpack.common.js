@@ -6,7 +6,7 @@ const { loadCss } = require('../modules/styles')
 const { loadFonts } = require('../modules/fonts')
 const { loadTs } = require('../modules/scripts')
 const { loadImages, processImages } = require('../modules/images')
-const { esLint, styleLint } = require('../modules/utils')
+const { esLint, styleLint, useDotenv } = require('../modules/utils')
 
 module.exports = () => {
   return merge(
@@ -40,5 +40,6 @@ module.exports = () => {
     loadCss(),
     esLint(),
     styleLint(),
+    useDotenv(),
   )
 }

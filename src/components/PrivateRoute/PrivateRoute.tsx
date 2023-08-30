@@ -1,4 +1,3 @@
-//TODO: добавить progress bar вместо loading
 import './PrivateRoute.scss'
 import React, { FC } from 'react'
 import { Navigate, Outlet, RouteProps } from 'react-router-dom'
